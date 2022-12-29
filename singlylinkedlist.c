@@ -10,29 +10,27 @@ struct Node * tail=NULL;
 
 void insertfront(int d){
     struct Node * ptr=(struct Node *)malloc(sizeof(struct Node *));
+    ptr->data=d;
     if(head==NULL){
-        ptr->data=d;
         ptr->next=NULL;
         head=ptr;
         tail=ptr;
     }
     else{
-        ptr->data=d;
         ptr->next=head;
         head=ptr;
     }
 }
 void insertend(int d){
     struct Node * ptr= (struct Node *)malloc(sizeof(struct Node *));
-    if(head==NULL){
-        ptr->data=d;
+    ptr->data=d;
+    if(head==NULL){      
         ptr->next=NULL;
         head=ptr;
         tail=ptr;
     }
     else{
         tail->next=ptr;
-        ptr->data=d;
         tail=ptr;
     }
 }
