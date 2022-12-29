@@ -5,11 +5,11 @@ struct Node{
     struct Node * next;
 };
 
-struct Node * head=NULL;
-struct Node * tail=NULL;
+struct Node * head;
+struct Node * tail;
 
 void insertfront(int d){
-    struct Node * ptr=(struct Node *)malloc(sizeof(struct Node *));
+    struct Node * ptr=(struct Node *)malloc(sizeof(struct Node ));
     ptr->data=d;
     if(head==NULL){
         ptr->next=NULL;
@@ -22,7 +22,7 @@ void insertfront(int d){
     }
 }
 void insertend(int d){
-    struct Node * ptr= (struct Node *)malloc(sizeof(struct Node *));
+    struct Node * ptr= (struct Node *)malloc(sizeof(struct Node ));
     ptr->data=d;
     if(head==NULL){      
         ptr->next=NULL;
@@ -35,7 +35,7 @@ void insertend(int d){
     }
 }
 void insertbetween(int d1,int d){
-    struct Node * ptr=(struct Node *)malloc(sizeof(struct Node *));
+    struct Node * ptr=(struct Node *)malloc(sizeof(struct Node ));
     if(head==NULL){
         printf("Empty list");
     }
@@ -75,6 +75,7 @@ void display(){
             printf("%d ",i->data);
             i=i->next;
         }
+        printf("\n");
     }
 }
 
