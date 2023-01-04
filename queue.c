@@ -1,38 +1,38 @@
 #include<stdio.h>
 #include<stdlib.h>
-
 #define size 8
 
+int queue[size],front=-1,rear=-1;
 
-int stack[size],top=-1;
-
-
-
-void push(int element){
-    if (top==size-1){
-        printf("Stack Overflow\n");
+void enqueue(int element){
+    if(rear==size-1){
+        printf("Queue is full\n");
     }
     else{
-        stack[++top]=element;
+        if(rear==-1){
+            front=0;
+        }
+        queue[++rear]=element;
     }
 }
 
-void pop(){
-    if (top==-1){
-        printf("Stack Underflow\n");
+void dequeue(){
+    if(rear==-1){
+        printf("Queue is empty\n");
     }
     else{
-        printf("Popped element : %d\n",stack[top]);
-        top--;
+        printf("Deleted element : %d\n",queue[front]);
+        front++;
     }
 }
+
 void display(){
-    if (top==-1){
-        printf("Stack Underflow");
+    if(rear==-1){
+        printf("Queue is empty\n");
     }
     else{
-        for(int i=0;i<=top;i++){
-            printf("%d  ",stack[i]);
+        for(int i=front;i<=rear;i++){
+            printf("%d  ",queue[i]);
         }
         printf("\n");
     }
@@ -41,9 +41,9 @@ void display(){
 void main(){
     while(1){
         int choice;
-        printf("1. Push element into stack\n");
-        printf("2. Pop element from stack\n");
-        printf("3. Display stack elements\n");
+        printf("1. Enqueue\n");
+        printf("2. Dequeue\n");
+        printf("3. Display queue\n");
         printf("4. Exit\n");
         
         printf("Enter your choice :");
@@ -51,14 +51,14 @@ void main(){
 
         switch(choice){
             case 1:
-            printf("Enter element to be pushed :");
+            printf("Enter element to be added :");
             int element;
             scanf("%d",&element);
-            push(element);
+            enqueue(element);
             break;
 
             case 2:
-            pop();
+            dequeue();
             break;
 
             case 3:
