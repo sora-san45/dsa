@@ -1,3 +1,4 @@
+
 //modified code to improve time complexity of best case O(n)
 
 #include<stdio.h>
@@ -31,4 +32,3 @@ void main(){
     for(int i=0;i<n;i++){
         printf("%d ",a[i]);
     }
-}
