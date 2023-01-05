@@ -56,14 +56,34 @@ void delete(int d){
         printf("Empty list");
     }
     else{
-        struct Node * i=head;
-        while(i->next->data!=d){
-            i=i->next;
+        if(head->data==d){
+            struct Node * temp =head;
+            head=head->next;
+            free(temp);
         }
-        struct Node * temp = i->next;
-        i->next=temp->next;
-        printf("deleted %d",temp->data);
-        temp=NULL;
+        else if(tail->data==d){
+            struct Node * i =head;
+            struct Node *prev = NULL;
+            while(i->next!=NULL){
+                prev=i;
+                i=i->next;
+            }
+            struct Node * temp=tail;
+            tail=prev;
+            prev->next=NULL;
+            free(temp);
+        }
+        else{
+            struct Node * i=head;
+            struct Node *prev = NULL;
+            while(i->data!=d){
+                prev=i;
+                i=i->next;
+            }
+            prev->next=i->next;
+            free(i);
+        }
+        
     }
 }
 void display(){
