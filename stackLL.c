@@ -26,9 +26,14 @@ void pop(){
 }
 void display(){
     struct Node * i=top;
-    while(top!=NULL){
-        printf(" % d ",top->data);
-        top=top->data;
+    if(front==NULL){
+        printf("Empty");
+    }
+    else{
+        while(i!=NULL){
+        printf(" % d ",i->data);
+        i=i->next;
+    }
     }
 }
 void main(){
