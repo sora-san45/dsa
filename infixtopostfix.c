@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdbool.h>
 #include <string.h>
+#include<ctype.h>
 #define max 100
 char stack[max];
 char postfix[max];
@@ -12,10 +13,7 @@ char pop(){
 	return stack[top--];
 }
 bool isEmpty(){
-	if(top==-1){
-		return true;
-	}
-	return false;
+	return top==-1;
 }
 int precedence(char c){
 	switch (c){
@@ -33,50 +31,42 @@ int precedence(char c){
         return -1;
 	}
 }
-bool isOperand(char c){
-	return ((c>='a' && c<='z') || (c>='A' && c<='Z'));
-}
+
 void convert(char infix[]){
 	int start=0;
+	char x;
 	for(int i=0;infix[i]!='\0';i++){
-		if(isOperand(infix[i])){
+		if(isalnum(infix[i])){
 			postfix[start++]=infix[i];
 		}
-		else if (infix[i]=='('){
+		else if(infix[i]=='('){
 			push(infix[i]);
 		}
 		else if(infix[i]==')'){
-			int x=pop();
-			while(x!=')'){
+			x=pop();
+			while(x!='('){
 				postfix[start++]=x;
 				x=pop();
 			}
 		}
 		else{
-			if(precedence(infix[i])>precedence(stack[top])){
-				push(infix[i]);
+			while(precedence(stack[top])>=precedence(infix[i])){
+				postfix[start++]=pop();
 			}
-			else{
-				while(precedence(stack[top])>=precedence(infix[i])){
-					postfix[start++]=pop();
-				}
-				push(infix[i]);
-			}
+			push(infix[i]);
 		}
-		
 	}
 	while(!isEmpty()){
 		postfix[start++]=pop();
 	}
 	postfix[start]='\0';
 	printf("\nPosfix :\n");
-	for(int i=0;postfix[i]!='\0';i++){
-		printf("%c",postfix[i]);
-	}
+	printf("%s",postfix);
+	
 }
 void main(){
 	printf("Enter infix expression :");
 	char infix[max];
-	scanf("%s",&infix);
+	scanf("%s",infix);
 	convert(infix);
 }
