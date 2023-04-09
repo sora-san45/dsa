@@ -12,6 +12,9 @@ KTU Lab Programs for S3
 | Double Linked List | [Code](https://github.com/sora-san45/dsa/blob/master/doublylinkedlist.c) |
 | Hashing using Chaining | [Code](https://github.com/sora-san45/dsa/blob/master/hashchain.c) |
 | Hasing using Linear Probing | [Code](https://github.com/sora-san45/dsa/blob/master/hashprobe.c) |
-
+| Heap Sort | [code](https://github.com/sora-san45/dsa/blob/master/heapsort.c) |
+| Infix to Postfix | [Code](https://github.com/sora-san45/dsa/blob/master/infixtopostfix.c) |
+| Infix to Prefix | [Code](https://github.com/sora-san45/dsa/blob/master/infixtoprefix.c) |
+|
 
 
