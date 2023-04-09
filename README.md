@@ -10,5 +10,7 @@ KTU Lab Programs for S3
 | Bubble Sort | [Code](https://github.com/sora-san45/dsa/blob/master/bubblesort.c) |
 | Circular Queue | [Code](https://github.com/sora-san45/dsa/blob/master/circularqueue.c) |
 | Double Linked List | [Code](https://github.com/sora-san45/dsa/blob/master/doublylinkedlist.c) |
+| Hashing using Chaining | [Code](https://github.com/sora-san45/dsa/blob/master/hashchain.c) |
+|
 
 
